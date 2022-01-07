@@ -1,0 +1,32 @@
+ ======================== Моя реалезация ============================================
+  if(words.isEmpty() ) return  words;
+         String[] write = words.split(" ");
+         String line = "";
+         for (int i = 1; i < 10; i++) {
+             for (int j = 0; j < write.length; j++) {
+                 if(write[j].contains("" + i)){
+                     line = line + write[j];
+                         if (line.length() == words.length()) return line;
+                         line = line + " ";
+                 }
+             }
+         }
+         return line;
+ ===========================================================================================
+
+ return Arrays.stream(words.split(" "))
+       .sorted(Comparator.comparing(s -> Integer.valueOf(s.replaceAll("\\D", ""))))
+       .reduce((a, b) -> a + " " + b).get();
+
+       ============================================================================
+         String[] arr = words.split(" ");
+               StringBuilder result = new StringBuilder("");
+               for (int i = 0; i < 10; i++) {
+                   for (String s : arr) {
+                       if (s.contains(String.valueOf(i))) {
+                           result.append(s + " ");
+                       }
+                   }
+               }
+               return result.toString().trim();
+ ====================================================================================================
