@@ -1,6 +1,7 @@
 package com.example.game.main_controller;
 
 import com.example.game.controller.UserController;
+import com.example.game.entity.QuestEntity;
 import com.example.game.entity.UsersEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller("/")
 public class UserControllerMain {
@@ -17,7 +17,7 @@ public class UserControllerMain {
 
     @GetMapping
     public String main(Model model){
-        model.addAttribute("menu","Игра как стать мелионером");
+        model.addAttribute("menu","Игра как стать меллеонером");
         return "menu";
     }
 
@@ -30,9 +30,11 @@ public class UserControllerMain {
 
     @PostMapping("/newUser")
     public String newUser(@ModelAttribute("NewUser") UsersEntity user, Model model){
-        System.out.println(user);
-        user = userRestController.newUser(user);
-        model.addAttribute("game", "Приветсвтуем тебя " + user.getName());
+//        user = userRestController.newUser(user);
+        QuestEntity questEntity = new QuestEntity();
+        questEntity.setQuest("Первый вопрос");
+        model.addAttribute("gamer", user);
+        model.addAttribute("quest", questEntity);
         return "game";
     }
 }
