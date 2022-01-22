@@ -24,6 +24,7 @@ public class UserControllerMain {
     @GetMapping("/newUser")
     public String newUser(Model model){
         UsersEntity user = new UsersEntity();
+        System.out.println("отправил на регистрацию" + user);
         model.addAttribute("NewUser", user);
         return "newUser";
     }
@@ -33,6 +34,7 @@ public class UserControllerMain {
 //        user = userRestController.newUser(user);
         QuestEntity questEntity = new QuestEntity();
         questEntity.setQuest("Первый вопрос");
+        System.out.println("Принял после регистрации "  + user);
         model.addAttribute("gamer", user);
         model.addAttribute("quest", questEntity);
         return "game";

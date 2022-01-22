@@ -10,8 +10,15 @@
 <center>
 
     <h1>Мы находимся тут </h1>
-<h1 th:text="${gamer.name}">
-</h1>
+<h1 th:text="${gamer.id}"/>
+<h1 th:text="${gamer.name}"/>
+<h1 th:text="${gamer.point}"/>
+<h1 th:text="${gamer.countQuestion}"/>
+<h1 th:text="${gamer.phone}"/>
+<h1 th:text="${gamer.hall}"/>
+<h1 th:text="${gamer.fifty}"/>
+
+
 <br>
     <form th:action="@{/game}"   th:method="Post">
 
@@ -20,10 +27,13 @@
             <input type="hidden" th:field="*{name}"  id="name">
             <input type="hidden" th:field="*{point}"  id="point">
             <input type="hidden" th:field="*{countQuestion}" id="countQuestion">
+            <input type="hidden" th:field="*{phone}" id="phone">
+            <input type="hidden" th:field="*{hall}" id="hall">
+            <input type="hidden" th:field="*{fifty}" th:value="*{fifty}" id="fifty">
         </div>
         <div th:object = "${quest}">
             <h1 th:text="${quest.quest}"/>
-            <input type="text" th:field = "*{aswer}" placeholder="Введите ответ" id="aswer">
+            <input type="number" th:field = "*{level}" placeholder="Введите ответ" id="level">
         </div>
         <input type="submit" name="submit">
     </form>

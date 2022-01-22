@@ -20,6 +20,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UsersEntity newUser(UsersEntity user) {
+        user.setFifty(1);
+        user.setPhone(1);
+        user.setHall(1);
         return userRepository.save(user);
     }
+
+    @Override
+    public UsersEntity getUserName(String name) {
+        UsersEntity user = userRepository.findByName(name).orElse(null);
+        return user;
+    }
+
+
 }

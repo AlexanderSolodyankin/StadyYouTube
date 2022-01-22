@@ -11,6 +11,7 @@
 
 <form th:action="@{/newUser}" th:object="${NewUser}" th:method="POST">
     <input type="text" th:field="*{name}" placeholder="Имя пользователя" id="name">
+    <input type="hidden" th:field="*{point}" placeholder = "1" id="point">
     <input type="submit" name="submit">
 </form>
 

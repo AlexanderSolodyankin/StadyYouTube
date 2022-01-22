@@ -13,7 +13,7 @@ public class GameController {
 
     @PostMapping("/game")
     public String game(@ModelAttribute("gamer") UsersEntity user, @ModelAttribute("quest") QuestEntity questEntity, Model model){
-        System.out.println("полученный вопрос " + questEntity);
+        System.out.println("Проверка юзера" + user);
         model.addAttribute("gamer",user);
         model.addAttribute("quest", questEntity);
 

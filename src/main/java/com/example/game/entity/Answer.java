@@ -2,10 +2,7 @@ package com.example.game.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -14,10 +11,14 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @ToString
 @Builder
-public class QuestEntity {
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String quest;
-    private int level;
+    private String answer;
+    private Boolean checkAnswer;
+
+    @ManyToOne
+    @JoinColumn(name="quest_entity_id")
+    private QuestEntity questEntity;
 }

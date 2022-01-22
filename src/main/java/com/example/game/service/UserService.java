@@ -7,5 +7,6 @@ import java.util.List;
 public interface UserService {
     List<UsersEntity> getAllUsers();
     UsersEntity newUser(UsersEntity user);
+    UsersEntity getUserName(String name);
 
 }
